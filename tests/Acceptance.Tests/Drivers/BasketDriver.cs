@@ -1,3 +1,4 @@
+using Domain;
 using Services;
 
 namespace Acceptance.Tests.Drivers
@@ -18,7 +19,7 @@ namespace Acceptance.Tests.Drivers
             return this;
         }
 
-        public BasketDriver WithProduct(/*Product product*/)
+        public BasketDriver WithOrder(Order order)
         {
             //_basketService.AddProduct(product);
             return this;
