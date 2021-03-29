@@ -51,6 +51,33 @@ namespace Domain
             return !Equals(left, right);
         }
 
+        public static implicit operator Product(string product)
+        {
+            Product p = null;
+            
+            switch (product)
+            {
+                case "Bread":
+                {
+                    p = Product.Bread;
+                    break;
+                }
+                case "Milk":
+                {
+                    p = Product.Milk;
+                    break;
+                }
+                case "Butter":
+                {
+                    p = Product.Butter;
+                    break;
+                }
+                default: throw new ArgumentException($"Product '{product}' is not recognised.");
+            }
+
+            return p;
+        }
+
         public override string ToString()
         {
             return $"{nameof(Name)}: {Name}, {nameof(Cost)}: {Cost}, {nameof(Currency)}: {Currency}";
