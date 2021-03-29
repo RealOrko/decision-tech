@@ -1,28 +1,37 @@
+using Services;
+
 namespace Acceptance.Tests.Drivers
 {
     public class BasketDriver
     {
-        //private IBasketService _basketService;
+        private IBasketService _basketService;
 
-        public void NewBasketService()
+        public BasketDriver NewBasketService()
         {
-            //_basketService = new BasketService();
+            _basketService = new BasketService();
+            return this;
         }
 
-        public void WithDiscount(/*Discount discount*/)
+        public BasketDriver WithDiscount(/*Discount discount*/)
         {
             //_basketService.AddDiscount(discount);
+            return this;
         }
 
-        public void WithProduct(/*Product product*/)
+        public BasketDriver WithProduct(/*Product product*/)
         {
             //_basketService.AddProduct(product);
+            return this;
         }
 
-        public decimal GetTotal()
+        public BasketDriver GetTotal()
         {
-            //return _basketService.GetTotal();
-            return 0m;
+            //this.total = _basketService.GetTotal();
+            return this;
+        }
+        
+        public void Assert(decimal total)
+        {
         }
     }
 }
