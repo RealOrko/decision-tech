@@ -13,12 +13,6 @@ namespace Acceptance.Tests.Drivers
             return this;
         }
 
-        public BasketDriver WithDiscount(/*Discount discount*/)
-        {
-            //_basketService.AddDiscount(discount);
-            return this;
-        }
-
         public BasketDriver WithOrder(Order order)
         {
             _basketService.AddOrder(order);

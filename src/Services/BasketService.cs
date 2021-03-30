@@ -23,7 +23,13 @@ namespace Services
 
         public decimal GetTotal()
         {
-            return _orders.Sum(x => x.Product.Cost * x.Quantity);
+            var discounts =
+                Discount.ThreeMilkFourthForFree.GetDiscount(_orders)
+                    .Concat(Discount.TwoButterOneBreadFiftyPercentOff.GetDiscount(_orders))
+                    .ToList();
+            
+            return _orders.Concat(discounts)
+                .Sum(x => x.Product.Cost * x.Quantity);
         }
     }
 }
