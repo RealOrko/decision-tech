@@ -6,6 +6,7 @@ namespace Domain
     {
         /* Should be persistent store with table "Products" */
         
+        public static readonly Product Null = new Product(string.Empty, 0m, Currency.GBP);
         public static readonly Product Milk = new Product("Milk", 1.15m, Currency.GBP);
         public static readonly Product Bread = new Product("Bread", 1.00m, Currency.GBP);
         public static readonly Product Butter = new Product("Butter", 0.80m, Currency.GBP);

@@ -1,6 +1,6 @@
-using System;
 using Acceptance.Tests.Drivers;
 using Domain;
+using NUnit.Framework;
 using TechTalk.SpecFlow;
 
 namespace Acceptance.Tests.Steps
@@ -8,6 +8,7 @@ namespace Acceptance.Tests.Steps
     [Binding]
     public class BasketSteps
     {
+        private decimal _basketTotal;
         private readonly BasketDriver _driver;
 
         public BasketSteps(BasketDriver driver)
@@ -149,15 +150,15 @@ namespace Acceptance.Tests.Steps
         [When(@"I total the basket")]
         public void WhenTotal()
         {
-            _driver.GetTotal();
+            _basketTotal = _driver.GetTotal();
         }
 
         /* Assertion of total */
         
         [Then(@"the total should be £(\d+\.\d+)")]
-        public void ThenTotal(string total)
+        public void ThenTotalShouldBe(string total)
         {
-            _driver.Assert(decimal.Parse(total));
+            Assert.That(_basketTotal, Is.EqualTo(decimal.Parse(total)));
         }
     }
 }

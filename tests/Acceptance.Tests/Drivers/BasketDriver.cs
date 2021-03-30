@@ -21,18 +21,13 @@ namespace Acceptance.Tests.Drivers
 
         public BasketDriver WithOrder(Order order)
         {
-            //_basketService.AddProduct(product);
+            _basketService.AddOrder(order);
             return this;
         }
 
-        public BasketDriver GetTotal()
+        public decimal GetTotal()
         {
-            //this.total = _basketService.GetTotal();
-            return this;
-        }
-        
-        public void Assert(decimal total)
-        {
+            return _basketService.GetTotal();
         }
     }
 }
