@@ -2,8 +2,11 @@
 {
     public class Order
     {
+<<<<<<< HEAD
         public static readonly Order NoOp = new Order(Domain.Product.Null, 0);
         
+=======
+>>>>>>> e79583f61fddbc71b409ec5693639019e1fda04e
         /* Should include user profile but does not */
         
         public Order(Product product, int quantity)
